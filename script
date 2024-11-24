@@ -1,0 +1,81 @@
+
+
+local a=game:GetService"StarterGui"
+local b=game:GetService"Players"
+
+local function getHeadshot(c)local
+d, e=b:GetUserThumbnailAsync(
+c,
+Enum.ThumbnailType.HeadShot,
+Enum.ThumbnailSize.Size420x420
+)
+
+return d
+end
+
+local function sendNoti(c)
+local d=getHeadshot(c.userId)
+
+a:SetCore("SendNotification",{
+Title=c.DisplayName,
+Text=string.format("%s is in this server",c.Name),
+Icon=d or"rbxassetid://15059364356",
+Duration=10
+})
+end
+
+local function main()
+for c,d in pairs(b:GetPlayers())do
+if d:IsInGroup(33986332)then
+sendNoti(d)
+end
+end
+
+b.PlayerAdded:connect(function(c)
+if c:IsInGroup(33986332)then
+sendNoti(c)
+end
+end)
+end
+
+main()
+
+local a=game:GetService"StarterGui"
+local b=game:GetService"Players"
+
+local function getHeadshot(c)local
+d, e=b:GetUserThumbnailAsync(
+c,
+Enum.ThumbnailType.HeadShot,
+Enum.ThumbnailSize.Size420x420
+)
+
+return d
+end
+
+local function sendNoti(c)
+local d=getHeadshot(c.userId)
+
+a:SetCore("SendNotification",{
+Title=c.DisplayName,
+Text=string.format("%s is in this server",c.Name),
+Icon=d or"rbxassetid://15059364356",
+Duration=10
+})
+end
+
+local function main()
+for c,d in pairs(b:GetPlayers())do
+if d:IsInGroup(33986332)then
+sendNoti(d)
+end
+end
+
+b.PlayerAdded:connect(function(c)
+if c:IsInGroup(33986332)then
+sendNoti(c)
+end
+end)
+end
+
+main()
